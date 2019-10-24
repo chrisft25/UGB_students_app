@@ -1,4 +1,16 @@
-const endpoint= (route)=>{ return 'https://estudiantes.ugb.edu.sv/API/'+ route }
+const endpoint= (route,params=[])=>{
+    
+    let url ='https://estudiantes.ugb.edu.sv/API/'+ route + '/'
+
+    if(params.length>0){
+        params.map((param)=>{
+            url+=param;
+            url+='/'
+        })
+    }
+    
+    return url;
+}
 
 
 var app = {
