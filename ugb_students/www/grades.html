@@ -35,7 +35,7 @@
                     Profile
                 </a>
 
-                <a class="navbar-item" href="./grades.html">
+                <a class="navbar-item">
                     Grades
                 </a>
 
@@ -54,7 +54,7 @@
                 <div class="navbar-end">
                     <div class="navbar-item is-pulled-right">
                         <div class="buttons">
-                            <a class="button is-light" href="./logout.html">
+                            <a class="button is-light" href="logout.html">
                                 Log out
                             </a>
                         </div>
@@ -63,14 +63,54 @@
             </div>
     </nav>
     <div class="container">
-        <h1 class="title is-2">Welcome to Student's Portal</h1>
-        <h1 class="title is-1" id="nombreEstudiante"></h1>
+        <h1 class="title is-2">Grades</h1>
+        <table class="table is-responsive">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th><abbr title="Lab1">L1</abbr></th>
+                    <th><abbr title="Lab2">L2</abbr></th>
+                    <th><abbr title="Parc1">P1</abbr></th>
+                    <th><abbr title="Computo1">C1</abbr></th>
+                    <th><abbr title="Lab1">L1</abbr></th>
+                    <th><abbr title="Lab2">L2</abbr></th>
+                    <th><abbr title="Parc2">P2</abbr></th>
+                    <th><abbr title="Computo2">C2</abbr></th>
+                    <th><abbr title="Lab1">L1</abbr></th>
+                    <th><abbr title="Lab2">L2</abbr></th>
+                    <th><abbr title="Parc3">P3</abbr></th>
+                    <th><abbr title="Computo3">C3</abbr></th>
+                    <th><abbr title="FinalGrade">NF</abbr></th>
+
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Subject</th>
+                    <th><abbr title="Lab1">L1</abbr></th>
+                    <th><abbr title="Lab2">L2</abbr></th>
+                    <th><abbr title="Parc1">P1</abbr></th>
+                    <th><abbr title="Computo1">C1</abbr></th>
+                    <th><abbr title="Lab1">L1</abbr></th>
+                    <th><abbr title="Lab2">L2</abbr></th>
+                    <th><abbr title="Parc2">P2</abbr></th>
+                    <th><abbr title="Computo2">C2</abbr></th>
+                    <th><abbr title="Lab1">L1</abbr></th>
+                    <th><abbr title="Lab2">L2</abbr></th>
+                    <th><abbr title="Parc3">P3</abbr></th>
+                    <th><abbr title="Computo3">C3</abbr></th>
+                    <th><abbr title="FinalGrade">NF</abbr></th>
+                </tr>
+            </tfoot>
+            <tbody id="gradesTable">
+            </tbody>
+        </table>
 
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
-    <script type="text/javascript" src="./js/home.js"></script>
+    <script type="text/javascript" src="./js/grades.js"></script>
 </body>
 
 </html>

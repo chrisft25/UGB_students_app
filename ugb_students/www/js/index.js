@@ -3,41 +3,47 @@ const endpoint= (route,params=[])=>{
     let url ='https://estudiantes.ugb.edu.sv/API/'+ route + '/'
 
     if(params.length>0){
-        params.map((param)=>{
-            url+=param;
-            url+='/'
-        })
+        for(let i=0; i<params.length;i++){
+            url+=params[i];
+            if(i<params.length-1){
+                url+='/'
+            }
+        }
     }
     
     return url;
 }
 
+const createSession = (student)=>{
+    sessionStorage.setItem('username',student.carnet)
+    sessionStorage.setItem('studentInfo', JSON.stringify(student))
+    return (sessionStorage.getItem('username')) ? true : false
+}
+
+const getSession = ()=>{
+    return sessionStorage.getItem('username')
+}
+
+const getStudentData = ()=>{
+    return JSON.parse(sessionStorage.getItem('studentInfo'))
+}
 
 var app = {
-    // Application Constructor
     initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        // alert(endpoint('hola'))
-    },
-
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+        var url= window.location.toString(); //Obtenemos ruta actual
+        url = url.substring(url.lastIndexOf('/')+1) //Obtenemos nombre de archivo especifico
+        if(!getSession() && !url.startsWith('index.html')){
+            window.location="index.html"
+        }
+        
+        if(url.startsWith('home.html')){ 
+                cargarcategorias();
+            
+        }else if (url.startsWith('index.html')){
+            if(getSession()){
+                window.location="home.html"
+            }
+        }
     }
 };
 
