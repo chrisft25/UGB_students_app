@@ -9,10 +9,8 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.post('/ugblogin', function (req, res) {
-    console.log(req.body)
-let {carnet,pass} = req.body
-console.log(carnet,pass)
+app.get('/ugblogin', function (req, res) {
+let {carnet,pass} = req.query
 curl.setBody({
  carnet,pass
 })
